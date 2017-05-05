@@ -31,7 +31,7 @@ function initialization {
     log_info "==> Downloading Planet file..."
     chown -R nominatim:nominatim /importdata
     START_DOWNLOAD=$(date +%s)
-    gosu nominatim curl -L -o /importdata/data.osm.pbf ${PLANET_DATA_URL} || die "Failed to download planet file"
+    gosu nominatim curl -s -S -L -o /importdata/data.osm.pbf ${PLANET_DATA_URL} || die "Failed to download planet file"
     END_DOWNLOAD=$(date +%s)
   fi
 
